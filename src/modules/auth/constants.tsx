@@ -1,3 +1,0 @@
-export const SIGN_IN_REQUEST = 'SIGN_IN/REQUEST';
-export const SIGN_IN_SUCCESS = 'SIGN_IN/SUCCESS';
-export const SIGN_IN_FAILURE = 'SIGN_IN/FAILURE';

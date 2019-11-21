@@ -6,9 +6,12 @@ export const METHOD_PUT = 'put';
 export const METHOD_DELETE = 'delete';
 
 export const requestBuilder = (path: string, method: Method, data: object) => axios.request({
-    baseURL: 'https://backend.botkits.ru',
+    baseURL: 'http://localhost:8080',
     method,
     [method === METHOD_GET ? 'params' : 'data']: data,
     responseType: 'json',
     url: path,
+    headers: {
+        'Access-Control-Allow-Origin': '*',
+    }
 });

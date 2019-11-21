@@ -7,13 +7,13 @@ import {
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery } from 'redux-saga/effects';
 import {
-    authReducer,
-    AuthState,
-    SIGN_IN_REQUEST
-} from './auth';
-import SignInRequestSaga from './auth/saga';
+    searchReducer,
+    SearchState,
+    SEARCH_REQUEST,
+} from './search';
+import SearchRequestSaga from './search/saga';
 
-export * from './auth';
+export * from './search';
 
 declare global {
     // tslint:disable-next-line:no-any
@@ -22,19 +22,19 @@ declare global {
 
 // app state interface
 export interface AppState {
-    auth: AuthState;
+    search: SearchState;
 }
 
 // preparing app reducer
 const appReducer = combineReducers({
-    auth: authReducer,
+    search: searchReducer,
 });
 
 // preparing sagas
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 function* appSaga() {
-    yield takeEvery(SIGN_IN_REQUEST, SignInRequestSaga);
+    yield takeEvery(SEARCH_REQUEST, SearchRequestSaga);
 }
 
 const sagaMiddleware = createSagaMiddleware();
